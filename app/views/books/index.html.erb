@@ -1,17 +1,60 @@
+<p class="notice"><%= flash[:notice] %></p>
+
 <h2>Books</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th><strong>Title</strong></th>
-      <th><strong>Option</strong></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @books.each do |book| %>
-    <tr>
+<!--user設定予定-->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4" style="background-color: orange;">
+      <h2>User info</h2>
 
-    </tr>
-  </tbody>
-</table>
+<!--仮-->
+
+      <%= form_with model: @book, url: '/books', method: :post do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "book_title" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "book_body" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Book", class: "submit" %>
+  </div>
+<% end %>
+
+<!--仮-->
+
+    </div>
+<!---->
+
+<!--ログインユーザー投稿一覧-->
+<div class="col-lg-8">
+  <h2>Books</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Title</th>
+        <th scope="col">Option</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
+  </div>
+</div>
