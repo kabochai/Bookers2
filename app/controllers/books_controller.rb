@@ -20,8 +20,21 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def update
+
+  end
+
   def show
+    @user = User.find(params[:id])
+    @profile_image = @user.profile_image
     @book = Book.find(params[:id])
+    @book_new = Book.new
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.delete
+    redirect_to books_path
   end
 
   private
