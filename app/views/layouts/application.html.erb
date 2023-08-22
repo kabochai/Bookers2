@@ -24,20 +24,20 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "|||||||||||Home", user_path(current_user.id) %>
+                <%= link_to "Home　", user_path(current_user.id) %>
               </li>
               <li class="nav-item">
-                <%= link_to "Users", users_path %>
+                <%= link_to "Users　", users_path %>
               </li>
               <li class="nav-item">
-                <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                <%= link_to "Log out　", destroy_user_session_path, method: :delete %>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "Sign up", new_user_session_path %>
+                <%= link_to "Sign up　", new_user_session_path %>
               </li>
               <li class="nav-item">
-                <%= link_to "Log in", new_user_session_path %>
+                <%= link_to "Log in　", new_user_session_path %>
               </li>
             <% end %>
             </ul>

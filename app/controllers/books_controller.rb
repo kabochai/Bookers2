@@ -25,10 +25,9 @@ class BooksController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @profile_image = @user.profile_image
     @book = Book.find(params[:id])
-    @book_new = Book.new
+    @user = @book.user
+    @profile_image = @user.profile_image
   end
 
   def destroy
