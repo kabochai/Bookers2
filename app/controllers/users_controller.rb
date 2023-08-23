@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @profile_image = @user.profile_image
+    # @profile_image = @user.profile_image
     @books = @user.books
     @book = Book.new
   end
@@ -19,14 +19,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update
+    @user.update(user_params)
     redirect_to users_path(@user)
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image)
+    params.require(:user).permit(:name, :profile_image, :introduction)
   end
 
   def is_matching_login_user
